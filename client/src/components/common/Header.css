@@ -1,0 +1,451 @@
+.site-header {
+  background-color: var(--primary); /* Deep Blue Base */
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+.container {
+  width: 95% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding-left: 40px !important;
+  padding-right: 40px !important; 
+}
+/* Flexbox for alignment */
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* Logo Styling */
+.logo-container {
+  margin-right: auto; /* Pushes everything else to the right */
+  padding-left: 0; /* Remove any left padding */
+}
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding-left: 0; /* Remove any left padding */
+  flex-shrink: 0;
+}
+
+.logo-text {
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--white);
+  font-family: "Montserrat", sans-serif;
+}
+.highlight {
+  font-weight: 700;
+  color: var(--secondary-light); /* Bright Complementary Blue */
+}
+/* Desktop Navigation */
+.desktop-nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+/* Button Styling */
+.nav-button {
+  padding: 10px 22px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+.signin {
+  background: transparent;
+  color: var(--light);
+  border: 1px solid rgba(42, 111, 158, 0.5); /* Secondary with opacity */
+}
+.signin:hover {
+  border-color: var(--secondary-light);
+  color: var(--secondary-light);
+  box-shadow: 0 0 10px rgba(42, 111, 158, 0.3);
+}
+.signup {
+  background: var(--secondary-light);
+  color: var(--primary-dark);
+  border: 1px solid var(--secondary-light);
+}
+.signup:hover {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  box-shadow: 0 0 15px rgba(42, 111, 158, 0.4);
+}
+.about {
+  background: transparent;
+  color: var(--light);
+  border: 1px solid rgba(42, 111, 158, 0.5); /* Secondary with opacity */
+}
+.about:hover {
+  border-color: var(--secondary-light);
+  color: var(--secondary-light);
+  box-shadow: 0 0 10px rgba(42, 111, 158, 0.3);
+}
+/* Mobile Menu Toggle Button */
+.mobile-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--secondary-light);
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 5px;
+}
+/* Mobile Menu */
+.mobile-menu {
+  background-color: var(--primary-dark);
+  width: 100%;
+  display: none;
+  position: fixed;
+  top: 60px; /* Adjust according to header height */
+  left: 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  padding-top: 20px;
+}
+.mobile-menu.open {
+  display: block;
+  padding: 8px 0; /* Reduced padding */
+}
+/* Mobile Nav */
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Reduced gap */
+  text-align: center;
+}
+/* Mobile Menu Links */
+.mobile-nav a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--secondary-light); /* Bright Complementary Blue */
+  padding: 6px 0; /* Reduced padding */
+  transition: color 0.3s ease;
+}
+.mobile-nav a:hover {
+  color: var(--secondary); /* Complementary Blue */
+}
+
+/* User Avatar and Role Styling */
+.user-avatar-wrapper {
+  cursor: pointer;
+  transition: transform 0.2s;
+  position: relative;
+}
+
+.user-avatar-wrapper:hover {
+  transform: scale(1.05);
+}
+
+.user-avatar-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--secondary-light);
+}
+
+/* Reduced spacing between avatar and role */
+.user-role {
+  display: inline-block;
+  background-color: var(--primary-light);
+  border-radius: 25px;
+  padding: 8px 15px;
+  margin-left: 8px;
+  border: 1px solid var(--secondary);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  color: var(--light);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.user-info, .user-info-mobile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.signout {
+  background: transparent;
+  color: var(--light);
+  border: 1px solid rgba(42, 111, 158, 0.5); /* Secondary with opacity */
+  cursor: pointer;
+}
+
+.signout:hover {
+  border-color: var(--secondary-light);
+  color: var(--secondary-light);
+  box-shadow: 0 0 10px rgba(42, 111, 158, 0.3);
+}
+
+/* Mobile User Controls - with cooler styling */
+.mobile-user-controls {
+  display: none;
+  align-items: center;
+  gap: 20px;
+}
+
+.mobile-user-icon, .mobile-signout-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: transparent;
+  border: none;
+}
+
+.mobile-user-icon {
+  color: var(--secondary-light);
+  font-size: 1.5rem;
+}
+
+.mobile-signout-icon {
+  color: var(--danger);
+  font-size: 1.5rem;
+}
+
+.mobile-user-icon:hover {
+  color: var(--secondary);
+  transform: scale(1.15);
+  text-shadow: 0 0 10px rgba(42, 111, 158, 0.6);
+}
+
+.mobile-signout-icon:hover {
+  color: #ff8c8c;
+  transform: scale(1.15);
+  text-shadow: 0 0 10px rgba(164, 38, 57, 0.6);
+}
+
+/* Profile Canvas Styling */
+:root {
+  --primary-dark: #143048;      /* Your header color */
+  --primary: #1d4368;           /* Slightly lighter shade */
+  --primary-light: #2d5580;     /* Even lighter for hover states */
+  --secondary: #3a6ea5;         /* Complementary blue */
+  --secondary-light: #64a0e0;   /* Lighter accent color */
+  --accent: #f0a83c;            /* Gold accent for important elements */
+  --danger: #e74c3c;            /* Red for warnings/signout */
+  --white: #ffffff;
+  --light: #e9f0f7;             /* Off-white for text */
+  --gray: #a0b3c6;              /* Muted text */
+  --shadow: rgba(10, 22, 37, 0.3); /* Shadow color that matches the theme */
+}
+
+.profile-canvas {
+  position: fixed;
+  top: 0;
+  right: -350px;
+  width: 350px;
+  height: 100vh;
+  background-color: var(--primary-dark);
+  box-shadow: -5px 0 15px var(--shadow);
+  z-index: 1000;
+  transition: right 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+.profile-canvas.open {
+  right: 0;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--primary);
+  border-bottom: 1px solid var(--secondary);
+}
+
+.profile-header h2 {
+  color: var(--light);
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.close-profile {
+  background: transparent;
+  border: none;
+  color: var(--light);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close-profile:hover {
+  color: var(--secondary-light);
+}
+
+.profile-content {
+  padding: 20px;
+}
+
+.profile-avatar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--secondary);
+}
+
+.profile-large-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  object-fit: cover;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px var(--shadow);
+}
+
+.profile-name-role {
+  text-align: center;
+}
+
+.profile-name-role h3 {
+  color: var(--white);
+  margin: 10px 0 5px;
+  font-size: 1.5rem;
+}
+
+.profile-role {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.profile-role span {
+  color: var(--secondary-light);
+  font-size: 1rem;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--secondary);
+}
+
+.profile-detail-item {
+  display: flex;
+  align-items: flex-start;
+}
+
+.detail-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.detail-label {
+  color: var(--gray);
+  font-size: 0.8rem;
+  margin-bottom: 3px;
+}
+
+.detail-value {
+  color: var(--light);
+  font-size: 1rem;
+  word-break: break-word;
+}
+
+.profile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.profile-action-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: var(--primary-light);
+  color: var(--light);
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.profile-action-button:hover {
+  background-color: var(--secondary);
+  transform: translateY(-2px);
+}
+
+.action-icon {
+  font-size: 1.1rem;
+}
+
+.profile-action-button.signout {
+  background-color: rgba(231, 76, 60, 0.15);
+  border: 1px solid var(--danger);
+  margin-top: 10px;
+}
+
+.profile-action-button.signout:hover {
+  background-color: rgba(231, 76, 60, 0.3);
+}
+
+.profile-action-button.signout .action-icon {
+  color: var(--danger);
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+ 
+  .mobile-menu-toggle {
+    display: block;
+  }
+  
+  .mobile-user-controls {
+    display: flex;
+  }
+ 
+  .nav-button {
+    display: block;
+    padding: 10px 0;
+    margin: 5px 0;
+    width: 100%;
+  }
+  
+  .profile-canvas {
+    width: 300px;
+    right: -300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-canvas {
+    width: 100%;
+    right: -100%;
+  }
+}
