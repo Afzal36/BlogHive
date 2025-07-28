@@ -38,7 +38,7 @@ function PostArticle() {
       articleObj.isArticleActive = true;
 
       // Make HTTP POST request to create new article
-      const res = await axios.post('http://localhost:3000/author-api/article', articleObj);
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/author-api/article`, articleObj);
       if (res.status === 201) {
         navigate(`/author-profile/${currentUser.email}/articles`);
       }

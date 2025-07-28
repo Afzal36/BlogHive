@@ -35,8 +35,8 @@ function Home() {
     
     try {
       const endpoint = selectedRole === 'author' 
-        ? 'http://localhost:3000/author-api/author' 
-        : 'http://localhost:3000/user-api/user';
+        ? `${import.meta.env.VITE_API_URL}/author-api/author`
+        : `${import.meta.env.VITE_API_URL}/user-api/user`;
       
       const res = await axios.post(endpoint, updatedUser);
       const { message, payload } = res.data;
@@ -81,7 +81,7 @@ function Home() {
           
           // Check if user exists in the database and if they are an admin
           const response = await axios.get(
-            `http://localhost:3000/admin-api/check-admin?email=${userInfo.email}`
+            `${import.meta.env.VITE_API_URL}/admin-api/check-admin?email=${userInfo.email}`
           );
           
           if (response.data.isAdmin) {

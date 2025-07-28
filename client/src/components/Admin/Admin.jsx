@@ -17,7 +17,7 @@ function Admin() {
       setLoading(true);
       setError(null);
       
-      const response = await axios.get('http://localhost:3000/admin-api/userauthors');
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/admin-api/userauthors`);
       
       const allUsers = response.data.payload || [];
       console.log(allUsers);
@@ -43,7 +43,7 @@ function Admin() {
     try {
       const data = encodeURIComponent(email);
       console.log(data);
-      await axios.put(`http://localhost:3000/admin-api/userauthors/${data}/status`,
+      await axios.put(`${import.meta.env.VITE_API_URL}/admin-api/userauthors/${data}/status`,
         { isActive: newActiveStatus }
       );
           

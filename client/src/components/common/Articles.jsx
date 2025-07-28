@@ -20,8 +20,8 @@ function Articles({ contextSource = 'author' }) {
     try {
       const token = await getToken();
       const endpoint = contextSource === 'author' 
-        ? 'http://localhost:3000/author-api/articles'
-        : 'http://localhost:3000/user-api/articles';
+        ? `${import.meta.env.VITE_API_URL}/author-api/articles`
+        : `${import.meta.env.VITE_API_URL}/user-api/articles`;
         
       const res = await axios.get(endpoint, {
         headers: {

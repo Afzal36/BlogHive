@@ -33,7 +33,7 @@ function ArticleByID() {
 
     try {
       const res = await axios.put(
-        `http://localhost:3000/author-api/article/${articleAfterChanges.articleId}`,
+        `${import.meta.env.VITE_API_URL}/author-api/article/${articleAfterChanges.articleId}`,
         articleAfterChanges,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -82,7 +82,7 @@ function ArticleByID() {
         console.log("Sending payload:", JSON.stringify(payload, null, 2));
 
         const res = await axios.put(
-            `http://localhost:3000/user-api/comment/${currentArticle.articleId}`,
+            `${import.meta.env.VITE_API_URL}/user-api/comment/${currentArticle.articleId}`,
             payload,
             {
                 headers: {
@@ -129,7 +129,7 @@ function ArticleByID() {
       
       const updatedState = { ...currentArticle, isArticleActive: false };
       const res = await axios.put(
-        `http://localhost:3000/author-api/articles/${currentArticle.articleId}`,
+        `${import.meta.env.VITE_API_URL}/author-api/articles/${currentArticle.articleId}`,
         updatedState,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -152,7 +152,7 @@ function ArticleByID() {
       
       const updatedState = { ...currentArticle, isArticleActive: true };
       const res = await axios.put(
-        `http://localhost:3000/author-api/articles/${currentArticle.articleId}`,
+        `${import.meta.env.VITE_API_URL}/author-api/articles/${currentArticle.articleId}`,
         updatedState,
         { headers: { Authorization: `Bearer ${token}` } }
       );
