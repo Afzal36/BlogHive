@@ -14,7 +14,11 @@ console.log(port)
 
 // CORS configuration
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://bloghive-gules.vercel.app', // allow only this origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],    // optional: allow specific HTTP methods
+  credentials: true                              // optional: if using cookies or auth headers
+}));
 
 // Database connection
 
