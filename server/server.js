@@ -8,7 +8,8 @@ const userApp = require("./Apis/userApi");
 const authorApp = require("./Apis/authorApi");
 const adminApp = require("./Apis/adminApi");
 
-const port = 3000 ;
+const port = process.env.PORT || 3000;
+
 
 console.log(port)
 
