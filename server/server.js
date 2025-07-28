@@ -21,7 +21,7 @@ app.use(cors());
 
 
 mongoose
-  .connect("mongodb+srv://afzal:afzal@bloghive.fwimpgm.mongodb.net/")
+  .connect(process.env.DB_URL)
   .then(() => {
     app.listen(port, () => console.log(`Server running on port ${port}...`));
     console.log("DB connection successful");
