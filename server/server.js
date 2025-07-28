@@ -1,6 +1,6 @@
+require("dotenv").config(); 
 const exp = require("express");
 const app = exp();
-require("dotenv").config(); 
 const mongoose = require("mongoose");
 const cors = require("cors");
 
@@ -8,23 +8,36 @@ const userApp = require("./Apis/userApi");
 const authorApp = require("./Apis/authorApi");
 const adminApp = require("./Apis/adminApi");
 
+// ✅ Use PORT from env or fallback to 3000
 const port = process.env.PORT || 3000;
+console.log("Using port:", port);
 
-
-console.log(port)
-
-// CORS configuration
-
+// ✅ CORS
 app.use(cors({
-  origin: 'https://bloghive-gules.vercel.app', // allow only this origin
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],    // optional: allow specific HTTP methods
-  credentials: true                              // optional: if using cookies or auth headers
+  origin: 'https://bloghive-gules.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
 }));
 
-// Database connection
+app.use(exp.json());
 
+// ✅ Root route
+app.get('/', (req, res) => {
+  res.send("Welcome to BlogHive");
+});
 
+// ✅ Routes
+app.use("/user-api", userApp);
+app.use("/author-api", authorApp);
+app.use("/admin-api", adminApp);
 
+// ✅ Error handler
+app.use((err, req, res, next) => {
+  console.error("Error handled by Express async handler:", err);
+  res.status(500).json({ message: err.message });
+});
+
+// ✅ DB Connection and Server Start
 mongoose
   .connect(process.env.DB_URL)
   .then(() => {
@@ -32,20 +45,3 @@ mongoose
     console.log("DB connection successful");
   })
   .catch((err) => console.log("Error in DB connection", err));
-
-// Middleware
-app.use(exp.json());
-app.get('/',(req,res)=>{
-   res.send("Welocme to InkSpire")
-})
-
-// Connect API routes
-app.use("/user-api", userApp);
-app.use("/author-api", authorApp);
-app.use("/admin-api", adminApp);
-
-// handler
-app.use((err, req, res, next) => {
-  console.error("Error handled by Express async handler:", err);
-  res.status(500).json({ message: err.message });
-});
